@@ -17,6 +17,10 @@
   ],
   "author": "romgrk.cc@gmail.com",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/romgrk/react-drop-zone"
+  },
   "peerDependencies": {
     "react": ">=0.15.0"
   },
