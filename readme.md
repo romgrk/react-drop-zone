@@ -22,6 +22,8 @@ import DropZone from 'react-drop-zone'
 </DropZone>
 ```
 
+[Demo](https://stackblitz.com/edit/react-drop-zone-demo)
+
 ### Install
 
 `npm i -S react-drop-zone`
