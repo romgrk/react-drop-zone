@@ -1,0 +1,27 @@
+{
+  "name": "react-drop-zone",
+  "version": "1.0.0",
+  "description": "Simplest dropzone component.",
+  "main": "dist/DropZone.js",
+  "scripts": {
+    "build": "babel src -d dist"
+  },
+  "keywords": [
+    "dropzone",
+    "file",
+    "drag-and-drop",
+    "react",
+    "file-drop",
+    "drag",
+    "drop"
+  ],
+  "author": "romgrk.cc@gmail.com",
+  "license": "ISC",
+  "peerDependencies": {
+    "react": ">=0.15.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.1"
+  }
+}
