@@ -1,6 +1,6 @@
 {
   "name": "react-drop-zone",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Simplest dropzone component.",
   "main": "dist/DropZone.js",
   "scripts": {
@@ -16,7 +16,7 @@
     "drop"
   ],
   "author": "romgrk.cc@gmail.com",
-  "license": "ISC",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/romgrk/react-drop-zone"
