@@ -2,6 +2,8 @@
 
 Simplest dropzone component.
 
+#### [Demo](https://stackblitz.com/edit/react-drop-zone-demo)
+
 ```jsx
 
 import DropZone from 'react-drop-zone'
@@ -21,8 +23,6 @@ import DropZone from 'react-drop-zone'
 }
 </DropZone>
 ```
-
-[Demo](https://stackblitz.com/edit/react-drop-zone-demo)
 
 ### Install
 
