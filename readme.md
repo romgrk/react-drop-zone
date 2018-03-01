@@ -35,12 +35,12 @@ import DropZone from 'react-drop-zone'
 
 <DropZone onDrop={(file, text) => console.log(file)}>
 {
-  ({ dragOver, dragOverDocument }) =>
+  ({ over, overDocument }) =>
     <div>
       {
-        dragOver ?
+        over ?
           'file is over element' :
-        dragOverDocument ?
+        overDocument ?
           'file is over document' :
           'no file'
       }
@@ -57,6 +57,8 @@ import DropZone from 'react-drop-zone'
 | `onDrop` (required) | called when a file is dropped or selected. Signature: `(file: HTML5File, text: String)` | |
 | `handleClick` | Handle click events on the rendered component | `true` |
 | `dontRead` | Prevent reading the file content, if it's causing problems | `false` |
+| `label` | [StyledDropZone only] Label on the component | `Select or Drop your file here` |
+| `children` | [DropZone only] Render function that receives `({ over: Boolean, overDocument: Boolean})` | `false` |
 
 
 ### Details
