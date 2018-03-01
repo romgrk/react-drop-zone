@@ -20,7 +20,7 @@ can be disabled).
 ![StyledDropZone](https://raw.github.com/romgrk/react-drop-zone/master/static/styled-drop-zone.png)
 
 ```jsx
-import DropZone from 'react-drop-zone'
+import { StyledDropZone } from 'react-drop-zone'
 
 <StyledDropZone onDrop={(file, text) => console.log(file, text)} />
 ```
