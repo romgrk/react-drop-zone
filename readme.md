@@ -5,7 +5,7 @@ pre-styled version, or a bare component that allows you to specify a render
 function.
 
 Both versions will trigger an `.onDrop(file: HTML5 File, text: String)`, so you
-get both the file handle and it's text content in a single event (file reading
+get both the file handle and its text content in a single event (file reading
 can be disabled).
 
 #### Install
