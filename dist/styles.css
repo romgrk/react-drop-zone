@@ -1,0 +1,26 @@
+/*
+ * styles.css
+ * Copyright (C) 2018 rgregoir
+ *
+ * Distributed under terms of the MIT license.
+ */
+
+.DropZone {
+  border: 3px dashed #888;
+  border-radius: 4px;
+  color: #aaa;
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 2em;
+  cursor: pointer;
+}
+.DropZone:hover {
+  background-color: rgba(0, 0, 0, 0.025);
+}
+.DropZone--over-document {
+  border: 3px dashed #599eff;
+}
+.DropZone--over {
+  border: 3px solid #259925;
+}

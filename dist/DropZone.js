@@ -10,6 +10,18 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _openFile = require('./open-file');
+
+var _openFile2 = _interopRequireDefault(_openFile);
+
+var _readFileAsText = require('./read-file-as-text');
+
+var _readFileAsText2 = _interopRequireDefault(_readFileAsText);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -44,6 +56,7 @@ var DropZone = function (_Component) {
 
     var _this = _possibleConstructorReturn(this, (DropZone.__proto__ || Object.getPrototypeOf(DropZone)).call(this, props));
 
+    _this.onClick = _this.onClick.bind(_this);
     _this.onDrag = _this.onDrag.bind(_this);
     _this.onDragStart = _this.onDragStart.bind(_this);
     _this.onDragEnd = _this.onDragEnd.bind(_this);
@@ -76,6 +89,22 @@ var DropZone = function (_Component) {
       }
     }
   }, {
+    key: 'triggerOnDrop',
+    value: function triggerOnDrop(file) {
+      var _this3 = this;
+
+      if (this.props.dontRead === true) {
+        this.props.onDrop(file, undefined);
+        return;
+      }
+
+      (0, _readFileAsText2.default)(file).catch(function (err) {
+        return Promise.resolve(undefined);
+      }).then(function (text) {
+        return _this3.props.onDrop(file, text);
+      });
+    }
+  }, {
     key: 'componentDidMount',
     value: function componentDidMount() {
       dropZones.push(this);
@@ -84,6 +113,15 @@ var DropZone = function (_Component) {
     key: 'componentWillUnmount',
     value: function componentWillUnmount() {
       dropZones.push(this);
+    }
+  }, {
+    key: 'onClick',
+    value: function onClick(event) {
+      var _this4 = this;
+
+      (0, _openFile2.default)().then(function (file) {
+        return _this4.triggerOnDrop(file);
+      });
     }
   }, {
     key: 'onDrag',
@@ -130,16 +168,16 @@ var DropZone = function (_Component) {
 
       var file = event.dataTransfer.items ? event.dataTransfer.items[0].getAsFile() : event.dataTransfer.files ? event.dataTransfer.files[0] : undefined;
 
-      if (file && this.props.onDrop) this.props.onDrop(file);
+      if (file) this.triggerOnDrop(file);
     }
   }, {
     key: 'render',
     value: function render() {
+      var handleClick = this.props.handleClick === true;
       var render = this.props.children;
 
       var children = render({ dragOver: this.state.over, dragOverDocument: this.state.overDocument });
-
-      return _react2.default.cloneElement(children, {
+      var props = {
         onDrag: this.onDrag,
         onDragStart: this.onDragStart,
         onDragEnd: this.onDragEnd,
@@ -147,11 +185,25 @@ var DropZone = function (_Component) {
         onDragEnter: this.onDragEnter,
         onDragLeave: this.onDragLeave,
         onDrop: this.onDrop
-      });
+      };
+      if (handleClick) props.onClick = this.onClick;
+
+      return _react2.default.cloneElement(children, props);
     }
   }]);
 
   return DropZone;
 }(_react.Component);
+
+DropZone.propTypes = {
+  onDrop: _propTypes2.default.func.isRequired,
+  handleClick: _propTypes2.default.bool,
+  dontRead: _propTypes2.default.bool
+};
+
+DropZone.defaultProps = {
+  handleClick: true,
+  dontRead: false
+};
 
 exports.default = DropZone;
