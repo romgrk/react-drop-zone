@@ -11,11 +11,11 @@ export default function StyledDropZone({ label, ...props }) {
   return (
     <DropZone {...props}>
       {
-        ({ dragOver, dragOverDocument }) => {
+        ({ over, overDocument }) => {
 
           let className = 'DropZone'
-          if (dragOver) className += ' DropZone--over'
-          if (dragOverDocument) className += ' DropZone--over-document'
+          if (over) className += ' DropZone--over'
+          if (overDocument) className += ' DropZone--over-document'
 
           return (
             <div className={className}>
