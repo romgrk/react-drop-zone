@@ -21,6 +21,7 @@ can be disabled).
 
 ```jsx
 import { StyledDropZone } from 'react-drop-zone'
+import 'react-drop-zone/dist/styles.css'
 
 <StyledDropZone onDrop={(file, text) => console.log(file, text)} />
 ```
