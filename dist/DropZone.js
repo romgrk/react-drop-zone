@@ -176,7 +176,7 @@ var DropZone = function (_Component) {
       var handleClick = this.props.handleClick === true;
       var render = this.props.children;
 
-      var children = render({ dragOver: this.state.over, dragOverDocument: this.state.overDocument });
+      var children = render({ over: this.state.over, overDocument: this.state.overDocument });
       var props = {
         onDrag: this.onDrag,
         onDragStart: this.onDragStart,

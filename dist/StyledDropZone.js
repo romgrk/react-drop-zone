@@ -31,13 +31,13 @@ function StyledDropZone(_ref) {
     _DropZone2.default,
     props,
     function (_ref2) {
-      var dragOver = _ref2.dragOver,
-          dragOverDocument = _ref2.dragOverDocument;
+      var over = _ref2.over,
+          overDocument = _ref2.overDocument;
 
 
       var className = 'DropZone';
-      if (dragOver) className += ' DropZone--over';
-      if (dragOverDocument) className += ' DropZone--over-document';
+      if (over) className += ' DropZone--over';
+      if (overDocument) className += ' DropZone--over-document';
 
       return _react2.default.createElement(
         'div',
