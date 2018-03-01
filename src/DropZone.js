@@ -1,4 +1,8 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+
+import openFile from './open-file'
+import readFileAsText from './read-file-as-text'
 
 const dropZones = []
 const events = {
@@ -20,6 +24,7 @@ Object.keys(events).forEach(event => {
 class DropZone extends Component {
   constructor(props) {
     super(props)
+    this.onClick     = this.onClick.bind(this)
     this.onDrag      = this.onDrag.bind(this)
     this.onDragStart = this.onDragStart.bind(this)
     this.onDragEnd   = this.onDragEnd.bind(this)
@@ -45,6 +50,17 @@ class DropZone extends Component {
     }
   }
 
+  triggerOnDrop(file) {
+    if (this.props.dontRead === true) {
+      this.props.onDrop(file, undefined)
+      return
+    }
+
+    readFileAsText(file)
+    .catch(err => Promise.resolve(undefined))
+    .then(text => this.props.onDrop(file, text))
+  }
+
   componentDidMount() {
     dropZones.push(this)
   }
@@ -53,6 +69,9 @@ class DropZone extends Component {
     dropZones.push(this)
   }
 
+  onClick(event) {
+    openFile().then(file => this.triggerOnDrop(file))
+  }
   onDrag(event, document) {
     if (document)
       return
@@ -91,16 +110,16 @@ class DropZone extends Component {
         event.dataTransfer.files ?
           event.dataTransfer.files[0] : undefined
 
-    if (file && this.props.onDrop)
-      this.props.onDrop(file)
+    if (file)
+      this.triggerOnDrop(file)
   }
 
   render() {
+    const handleClick = this.props.handleClick === true
     const render = this.props.children
 
-    const children = render({ dragOver: this.state.over, dragOverDocument: this.state.overDocument })
-
-    return React.cloneElement(children, {
+    const children = render({ over: this.state.over, overDocument: this.state.overDocument })
+    const props = {
       onDrag: this.onDrag,
       onDragStart: this.onDragStart,
       onDragEnd: this.onDragEnd,
@@ -108,8 +127,24 @@ class DropZone extends Component {
       onDragEnter: this.onDragEnter,
       onDragLeave: this.onDragLeave,
       onDrop: this.onDrop,
-    })
+    }
+    if (handleClick)
+      props.onClick = this.onClick
+
+    return React.cloneElement(children, props)
   }
 }
+
+DropZone.propTypes = {
+  onDrop: PropTypes.func.isRequired,
+  handleClick: PropTypes.bool,
+  dontRead: PropTypes.bool,
+}
+
+DropZone.defaultProps = {
+  handleClick: true,
+  dontRead: false,
+}
+
 
 export default DropZone;
