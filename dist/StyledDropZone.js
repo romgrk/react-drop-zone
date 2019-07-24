@@ -41,7 +41,7 @@ function StyledDropZone(_ref) {
 
       return _react2.default.createElement(
         'div',
-        { className: className },
+        { className: className, role: 'button' },
         label || 'Select or Drop your file here'
       );
     }

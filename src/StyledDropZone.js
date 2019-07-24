@@ -18,7 +18,7 @@ export default function StyledDropZone({ label, ...props }) {
           if (overDocument) className += ' DropZone--over-document'
 
           return (
-            <div className={className}>
+            <div className={className} role='button'>
               { label || 'Select or Drop your file here' }
             </div>
           )
