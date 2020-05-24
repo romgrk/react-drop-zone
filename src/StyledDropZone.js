@@ -19,7 +19,7 @@ export default function StyledDropZone({ label, ...props }) {
 
           return (
             <div className={className} role='button'>
-              { label || 'Select or Drop your file here' }
+              { label || 'Click or drop your file here' }
             </div>
           )
         }
