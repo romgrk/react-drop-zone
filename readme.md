@@ -1,9 +1,10 @@
-# DropZone
+# react-drop-zone
 
-This is a simple but customizeable component. You can use the styled version or
-the render-function version which allows you to control rendering.  Both
-versions trigger an `.onDrop(file: HTML5 File, content: String)` (file reading
-can be disabled).
+> Simple and easily usable
+
+This package offers a styled version of the component or a render-function
+version which allows you to control rendering. Both versions trigger an
+`.onDrop(file: HTML5 File, content: String)` (file reading can be disabled).
 
 ### Styled version ([open demo](https://stackblitz.com/edit/react-styled-drop-zone-demo))
 
