@@ -70,7 +70,7 @@ class DropZone extends Component {
   }
 
   onClick(event) {
-    openFile().then(file => this.triggerOnDrop(file))
+    openFile(this.props).then(file => this.triggerOnDrop(file))
   }
   onDrag(event, document) {
     if (document)

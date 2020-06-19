@@ -42,6 +42,7 @@ import DropZone from 'react-drop-zone'
 
 | Name                | Component        | Description                                                                             | Default                        |
 | ---                 | ---              | ---                                                                                     | ---                            |
+| `accept`            | `DropZone`       | Restricts downloads to an extension type.                                               | ---                            |
 | `onDrop` (required) | *both*           | called when a file is dropped or selected. Signature: `(file: HTML5File, text: String)` |                                |
 | `handleClick`       | *both*           | Handle click events on the rendered component                                           | `true`                         |
 | `dontRead`          | *both*           | Prevents reading the file content, if it's causing problems                             | `false`                        |
@@ -53,3 +54,9 @@ import DropZone from 'react-drop-zone'
 
 The component overwrites the `onDrag/DragEnter/.../Drop` props of the render
 function child.
+
+### The accept attribute
+
+If you need more information, see here: ([open developer](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#Additional_attributes))
+
+The device allows, for example, accept = ".pdf, image/*"
