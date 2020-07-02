@@ -65,7 +65,6 @@ var DropZone = function (_Component) {
     _this.onDragLeave = _this.onDragLeave.bind(_this);
     _this.onDrop = _this.onDrop.bind(_this);
 
-
     _this.state = {
       overDocument: false,
       over: false
@@ -120,7 +119,8 @@ var DropZone = function (_Component) {
     value: function onClick(event) {
       var _this4 = this;
 
-      (0, _openFile2.default)(_this4.props).then(function (file) {
+      event.stopPropagation();
+      (0, _openFile2.default)(this.props).then(function (file) {
         return _this4.triggerOnDrop(file);
       });
     }

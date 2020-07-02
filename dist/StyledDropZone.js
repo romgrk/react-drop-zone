@@ -3,6 +3,9 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 exports.default = StyledDropZone;
 
 var _react = require('react');
@@ -24,25 +27,30 @@ function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in ob
                                                                                                                                                                                                                               */
 
 function StyledDropZone(_ref) {
-  var label = _ref.label,
-      props = _objectWithoutProperties(_ref, ['label']);
+  var children = _ref.children,
+      className = _ref.className,
+      handleClick = _ref.handleClick,
+      dontRead = _ref.dontRead,
+      onDrop = _ref.onDrop,
+      rest = _objectWithoutProperties(_ref, ['children', 'className', 'handleClick', 'dontRead', 'onDrop']);
 
   return _react2.default.createElement(
     _DropZone2.default,
-    props,
+    { handleClick: handleClick, dontRead: dontRead, onDrop: onDrop },
     function (_ref2) {
       var over = _ref2.over,
           overDocument = _ref2.overDocument;
 
 
-      var className = 'DropZone';
-      if (over) className += ' DropZone--over';
-      if (overDocument) className += ' DropZone--over-document';
+      var elementClassName = 'DropZone';
+      if (over) elementClassName += ' DropZone--over';
+      if (overDocument) elementClassName += ' DropZone--over-document';
+      if (className) elementClassName += ' ' + className;
 
       return _react2.default.createElement(
         'div',
-        { className: className, role: 'button' },
-        label || 'Click or drop your file here'
+        _extends({ className: elementClassName, role: 'button' }, rest),
+        children || 'Click or drop your file here'
       );
     }
   );
@@ -52,5 +60,5 @@ StyledDropZone.propTypes = {
   onDrop: _propTypes2.default.func.isRequired,
   handleClick: _propTypes2.default.bool,
   dontRead: _propTypes2.default.bool,
-  label: _propTypes2.default.string
+  className: _propTypes2.default.string
 };

@@ -7,19 +7,20 @@ import PropTypes from 'prop-types';
 
 import DropZone from './DropZone';
 
-export default function StyledDropZone({ label, ...props }) {
+export default function StyledDropZone({ children, className, handleClick, dontRead, onDrop, ...rest }) {
   return (
-    <DropZone {...props}>
+    <DropZone {...{ handleClick, dontRead, onDrop }}>
       {
         ({ over, overDocument }) => {
 
-          let className = 'DropZone'
-          if (over) className += ' DropZone--over'
-          if (overDocument) className += ' DropZone--over-document'
+          let elementClassName = 'DropZone'
+          if (over) elementClassName += ' DropZone--over'
+          if (overDocument) elementClassName += ' DropZone--over-document'
+          if (className) elementClassName += ' ' + className
 
           return (
-            <div className={className} role='button'>
-              { label || 'Click or drop your file here' }
+            <div className={elementClassName} role='button' {...rest}>
+              { children || 'Click or drop your file here' }
             </div>
           )
         }
@@ -32,5 +33,5 @@ StyledDropZone.propTypes = {
   onDrop: PropTypes.func.isRequired,
   handleClick: PropTypes.bool,
   dontRead: PropTypes.bool,
-  label: PropTypes.string,
+  className: PropTypes.string,
 }
