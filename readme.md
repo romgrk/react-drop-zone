@@ -47,7 +47,7 @@ import DropZone from 'react-drop-zone'
 | `handleClick`       | *both*           | Handle click events on the rendered component                                           | `true`                         |
 | `dontRead`          | *both*           | Prevents reading the file content, if it's causing problems                             | `false`                        |
 | `children`          | `DropZone`       | Render function that receives `({ over: Boolean, overDocument: Boolean})`               | `false`                        |
-| `label`             | `StyledDropZone` | Label on the component                                                                  | `Click or drop your file here` |
+| `children`          | `StyledDropZone` | Label on the component                                                                  | `Click or drop your file here` |
 
 
 ### Additional API
