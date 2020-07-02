@@ -93,7 +93,7 @@ var DropZone = function (_Component) {
     value: function triggerOnDrop(file) {
       var _this3 = this;
 
-      if (this.props.dontRead === true) {
+      if (this.props.dontRead || this.props.multiple) {
         this.props.onDrop(file, undefined);
         return;
       }

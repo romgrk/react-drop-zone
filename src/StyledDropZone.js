@@ -7,9 +7,18 @@ import PropTypes from 'prop-types';
 
 import DropZone from './DropZone';
 
-export default function StyledDropZone({ children, className, handleClick, dontRead, onDrop, ...rest }) {
+export default function StyledDropZone({
+  children,
+  className,
+  accept,
+  multiple,
+  handleClick,
+  dontRead,
+  onDrop,
+  ...rest
+}) {
   return (
-    <DropZone {...{ handleClick, dontRead, onDrop }}>
+    <DropZone {...{ handleClick, dontRead, accept, multiple, onDrop }}>
       {
         ({ over, overDocument }) => {
 
@@ -34,4 +43,6 @@ StyledDropZone.propTypes = {
   handleClick: PropTypes.bool,
   dontRead: PropTypes.bool,
   className: PropTypes.string,
+  accept: PropTypes.string,
+  multiple: PropTypes.bool,
 }

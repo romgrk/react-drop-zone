@@ -51,7 +51,7 @@ class DropZone extends Component {
   }
 
   triggerOnDrop(file) {
-    if (this.props.dontRead === true) {
+    if (this.props.dontRead || this.props.multiple) {
       this.props.onDrop(file, undefined)
       return
     }

@@ -43,6 +43,7 @@ import DropZone from 'react-drop-zone'
 | Name                | Component        | Description                                                                             | Default                        |
 | ---                 | ---              | ---                                                                                     | ---                            |
 | `accept`            | `DropZone`       | Restricts downloads to an extension type.                                               | ---                            |
+| `multiple`          | `DropZone`       | Allows multiple files to be selected. (disables file reading!)                          | ---                            |
 | `onDrop` (required) | *both*           | called when a file is dropped or selected. Signature: `(file: HTML5File, text: String)` |                                |
 | `handleClick`       | *both*           | Handle click events on the rendered component                                           | `true`                         |
 | `dontRead`          | *both*           | Prevents reading the file content, if it's causing problems                             | `false`                        |

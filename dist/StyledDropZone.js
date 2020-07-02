@@ -29,14 +29,16 @@ function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in ob
 function StyledDropZone(_ref) {
   var children = _ref.children,
       className = _ref.className,
+      accept = _ref.accept,
+      multiple = _ref.multiple,
       handleClick = _ref.handleClick,
       dontRead = _ref.dontRead,
       onDrop = _ref.onDrop,
-      rest = _objectWithoutProperties(_ref, ['children', 'className', 'handleClick', 'dontRead', 'onDrop']);
+      rest = _objectWithoutProperties(_ref, ['children', 'className', 'accept', 'multiple', 'handleClick', 'dontRead', 'onDrop']);
 
   return _react2.default.createElement(
     _DropZone2.default,
-    { handleClick: handleClick, dontRead: dontRead, onDrop: onDrop },
+    { handleClick: handleClick, dontRead: dontRead, accept: accept, multiple: multiple, onDrop: onDrop },
     function (_ref2) {
       var over = _ref2.over,
           overDocument = _ref2.overDocument;
@@ -60,5 +62,7 @@ StyledDropZone.propTypes = {
   onDrop: _propTypes2.default.func.isRequired,
   handleClick: _propTypes2.default.bool,
   dontRead: _propTypes2.default.bool,
-  className: _propTypes2.default.string
+  className: _propTypes2.default.string,
+  accept: _propTypes2.default.string,
+  multiple: _propTypes2.default.bool
 };
