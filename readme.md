@@ -50,6 +50,25 @@ import DropZone from 'react-drop-zone'
 | `label`             | `StyledDropZone` | Label on the component                                                                  | `Click or drop your file here` |
 
 
+### Additional API
+
+The function `readFileAsText` is exported if you need to read a file's text content:
+
+```jsx
+import { StyledDropZone, readFileAsText } from 'react-drop-zone'
+import 'react-drop-zone/dist/styles.css'
+
+<StyledDropZone
+  dontRead
+  onDrop={(file) =>
+    !file.name.endsWith('.txt') ?
+      'Not a text file' :
+      readFileAsText(file)
+        .then(text => console.log(file, text))
+  }
+/>
+```
+
 ### Details
 
 The component overwrites the `onDrag/DragEnter/.../Drop` props of the render
