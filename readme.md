@@ -4,7 +4,8 @@
 
 This package offers a styled version of the component or a render-function
 version which allows you to control rendering. Both versions trigger an
-`.onDrop(file: HTML5 File, content: String)` (file reading can be disabled).
+`.onDrop(file: HTML5 File, content: String)` (file reading can be disabled).  
+
 
 ### Styled version ([open demo](https://stackblitz.com/edit/react-styled-drop-zone-demo))
 
@@ -14,8 +15,12 @@ version which allows you to control rendering. Both versions trigger an
 import { StyledDropZone } from 'react-drop-zone'
 import 'react-drop-zone/dist/styles.css'
 
-<StyledDropZone onDrop={(file, text) => console.log(file, text)} />
+<StyledDropZone
+  onDrop={(file, text) => console.log(file, text)}
+/>
 ```
+  
+  
 
 ### Bare version ([open demo](https://stackblitz.com/edit/react-drop-zone-demo))
 
@@ -37,13 +42,15 @@ import DropZone from 'react-drop-zone'
 }
 </DropZone>
 ```
+  
+  
 
 ## Props
 
 | Name                | Component        | Description                                                                             | Default                        |
 | ---                 | ---              | ---                                                                                     | ---                            |
-| `accept`            | `DropZone`       | Restricts downloads to an extension type.                                               | ---                            |
-| `multiple`          | `DropZone`       | Allows multiple files to be selected. (disables file reading!)                          | ---                            |
+| `accept`            | *both*           | Restricts downloads to an extension type.                                               | ---                            |
+| `multiple`          | *both*           | Allows multiple files to be selected. (disables file reading!)                          | ---                            |
 | `onDrop` (required) | *both*           | called when a file is dropped or selected. Signature: `(file: HTML5File, text: String)` |                                |
 | `handleClick`       | *both*           | Handle click events on the rendered component                                           | `true`                         |
 | `dontRead`          | *both*           | Prevents reading the file content, if it's causing problems                             | `false`                        |
