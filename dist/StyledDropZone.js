@@ -51,7 +51,7 @@ function StyledDropZone(_ref) {
 
       return _react2.default.createElement(
         'div',
-        _extends({ className: elementClassName, role: 'button', tabIndex: '-1' }, rest),
+        _extends({ className: elementClassName, role: 'button', tabIndex: '0' }, rest),
         children || 'Click or drop your file here'
       );
     }
