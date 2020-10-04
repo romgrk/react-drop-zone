@@ -28,7 +28,7 @@ export default function StyledDropZone({
           if (className) elementClassName += ' ' + className
 
           return (
-            <div className={elementClassName} role='button' tabIndex='-1' {...rest}>
+            <div className={elementClassName} role='button' tabIndex='0' {...rest}>
               { children || 'Click or drop your file here' }
             </div>
           )
