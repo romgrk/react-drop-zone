@@ -18,9 +18,10 @@
 .DropZone:hover {
   background-color: rgba(0, 0, 0, 0.025);
 }
+.DropZone:focus,
 .DropZone--over-document {
   border: 3px dashed #599eff;
 }
 .DropZone--over {
-  border: 3px solid #259925;
+  border: 3px dashed #259925;
 }
