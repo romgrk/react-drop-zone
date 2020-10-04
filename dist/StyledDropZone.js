@@ -36,6 +36,14 @@ function StyledDropZone(_ref) {
       onDrop = _ref.onDrop,
       rest = _objectWithoutProperties(_ref, ['children', 'className', 'accept', 'multiple', 'handleClick', 'dontRead', 'onDrop']);
 
+  var elementRef = (0, _react.useRef)(null);
+
+  var onKeyDown = function onKeyDown(event) {
+    if (event.keyCode === 13 // Enter
+    || event.keyCode === 32 // Space
+    ) elementRef.current && elementRef.current.click();
+  };
+
   return _react2.default.createElement(
     _DropZone2.default,
     { handleClick: handleClick, dontRead: dontRead, accept: accept, multiple: multiple, onDrop: onDrop },
@@ -51,7 +59,13 @@ function StyledDropZone(_ref) {
 
       return _react2.default.createElement(
         'div',
-        _extends({ className: elementClassName, role: 'button', tabIndex: '0' }, rest),
+        _extends({
+          className: elementClassName,
+          role: 'button',
+          tabIndex: '0',
+          onKeyDown: onKeyDown,
+          ref: elementRef
+        }, rest),
         children || 'Click or drop your file here'
       );
     }

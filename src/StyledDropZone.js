@@ -2,7 +2,7 @@
  * StyledDropZone.js
  */
 
-import React, { Component } from 'react';
+import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
 
 import DropZone from './DropZone';
@@ -17,6 +17,16 @@ export default function StyledDropZone({
   onDrop,
   ...rest
 }) {
+
+  const elementRef = useRef(null)
+
+  const onKeyDown = event => {
+    if (event.keyCode === 13 // Enter
+     || event.keyCode === 32 // Space
+    )
+      elementRef.current && elementRef.current.click()
+  }
+
   return (
     <DropZone {...{ handleClick, dontRead, accept, multiple, onDrop }}>
       {
@@ -28,7 +38,14 @@ export default function StyledDropZone({
           if (className) elementClassName += ' ' + className
 
           return (
-            <div className={elementClassName} role='button' tabIndex='0' {...rest}>
+            <div
+              className={elementClassName}
+              role='button'
+              tabIndex='0'
+              onKeyDown={onKeyDown}
+              ref={elementRef}
+              {...rest}
+            >
               { children || 'Click or drop your file here' }
             </div>
           )
