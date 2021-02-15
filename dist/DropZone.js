@@ -1,34 +1,47 @@
-'use strict';
+"use strict";
+
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports["default"] = void 0;
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _react = _interopRequireWildcard(require("react"));
 
-var _react = require('react');
+var _propTypes = _interopRequireDefault(require("prop-types"));
 
-var _react2 = _interopRequireDefault(_react);
+var _openFile = _interopRequireDefault(require("./open-file"));
 
-var _propTypes = require('prop-types');
+var _readFileAsText = _interopRequireDefault(require("./read-file-as-text"));
 
-var _propTypes2 = _interopRequireDefault(_propTypes);
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
-var _openFile = require('./open-file');
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function _getRequireWildcardCache() { return cache; }; return cache; }
 
-var _openFile2 = _interopRequireDefault(_openFile);
-
-var _readFileAsText = require('./read-file-as-text');
-
-var _readFileAsText2 = _interopRequireDefault(_readFileAsText);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || _typeof(obj) !== "object" && typeof obj !== "function") { return { "default": obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj["default"] = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 var dropZones = [];
 var events = {
@@ -48,23 +61,25 @@ Object.keys(events).forEach(function (event) {
   });
 });
 
-var DropZone = function (_Component) {
+var DropZone = /*#__PURE__*/function (_Component) {
   _inherits(DropZone, _Component);
 
+  var _super = _createSuper(DropZone);
+
   function DropZone(props) {
+    var _this;
+
     _classCallCheck(this, DropZone);
 
-    var _this = _possibleConstructorReturn(this, (DropZone.__proto__ || Object.getPrototypeOf(DropZone)).call(this, props));
-
-    _this.onClick = _this.onClick.bind(_this);
-    _this.onDrag = _this.onDrag.bind(_this);
-    _this.onDragStart = _this.onDragStart.bind(_this);
-    _this.onDragEnd = _this.onDragEnd.bind(_this);
-    _this.onDragOver = _this.onDragOver.bind(_this);
-    _this.onDragEnter = _this.onDragEnter.bind(_this);
-    _this.onDragLeave = _this.onDragLeave.bind(_this);
-    _this.onDrop = _this.onDrop.bind(_this);
-
+    _this = _super.call(this, props);
+    _this.onClick = _this.onClick.bind(_assertThisInitialized(_this));
+    _this.onDrag = _this.onDrag.bind(_assertThisInitialized(_this));
+    _this.onDragStart = _this.onDragStart.bind(_assertThisInitialized(_this));
+    _this.onDragEnd = _this.onDragEnd.bind(_assertThisInitialized(_this));
+    _this.onDragOver = _this.onDragOver.bind(_assertThisInitialized(_this));
+    _this.onDragEnter = _this.onDragEnter.bind(_assertThisInitialized(_this));
+    _this.onDragLeave = _this.onDragLeave.bind(_assertThisInitialized(_this));
+    _this.onDrop = _this.onDrop.bind(_assertThisInitialized(_this));
     _this.state = {
       overDocument: false,
       over: false
@@ -73,23 +88,29 @@ var DropZone = function (_Component) {
   }
 
   _createClass(DropZone, [{
-    key: 'setDragOver',
+    key: "setDragOver",
     value: function setDragOver(value, document) {
       var _this2 = this;
 
       if (value === false && document) {
         this.timeout = setTimeout(function () {
-          return _this2.setState({ overDocument: false });
+          return _this2.setState({
+            overDocument: false
+          });
         }, 75);
       } else if (value === true && document) {
         this.timeout = clearTimeout(this.timeout);
-        this.setState({ overDocument: true });
+        this.setState({
+          overDocument: true
+        });
       } else {
-        this.setState({ over: value });
+        this.setState({
+          over: value
+        });
       }
     }
   }, {
-    key: 'triggerOnDrop',
+    key: "triggerOnDrop",
     value: function triggerOnDrop(file) {
       var _this3 = this;
 
@@ -98,86 +119,86 @@ var DropZone = function (_Component) {
         return;
       }
 
-      (0, _readFileAsText2.default)(file).catch(function (err) {
+      (0, _readFileAsText["default"])(file)["catch"](function (err) {
         return Promise.resolve(undefined);
       }).then(function (text) {
         return _this3.props.onDrop(file, text);
       });
     }
   }, {
-    key: 'componentDidMount',
+    key: "componentDidMount",
     value: function componentDidMount() {
       dropZones.push(this);
     }
   }, {
-    key: 'componentWillUnmount',
+    key: "componentWillUnmount",
     value: function componentWillUnmount() {
       dropZones.push(this);
     }
   }, {
-    key: 'onClick',
+    key: "onClick",
     value: function onClick(event) {
       var _this4 = this;
 
       event.stopPropagation();
-      (0, _openFile2.default)(this.props).then(function (file) {
+      (0, _openFile["default"])(this.props).then(function (file) {
         return _this4.triggerOnDrop(file);
       });
     }
   }, {
-    key: 'onDrag',
+    key: "onDrag",
     value: function onDrag(event, document) {
       if (document) return;
       event.preventDefault();
     }
   }, {
-    key: 'onDragStart',
+    key: "onDragStart",
     value: function onDragStart(event, document) {
       if (document) return;
       event.preventDefault();
     }
   }, {
-    key: 'onDragOver',
+    key: "onDragOver",
     value: function onDragOver(event, document) {
       event.preventDefault();
       this.setDragOver(true, document);
     }
   }, {
-    key: 'onDragEnter',
+    key: "onDragEnter",
     value: function onDragEnter(event, document) {
       event.preventDefault();
       this.setDragOver(true, document);
     }
   }, {
-    key: 'onDragEnd',
+    key: "onDragEnd",
     value: function onDragEnd(event, document) {
       event.preventDefault();
       this.setDragOver(false, document);
     }
   }, {
-    key: 'onDragLeave',
+    key: "onDragLeave",
     value: function onDragLeave(event, document) {
       event.preventDefault();
       this.setDragOver(false, document);
     }
   }, {
-    key: 'onDrop',
+    key: "onDrop",
     value: function onDrop(event, document) {
       event.preventDefault();
       this.setDragOver(false, document);
       if (document) return;
-
       var file = event.dataTransfer.items ? event.dataTransfer.items[0].getAsFile() : event.dataTransfer.files ? event.dataTransfer.files[0] : undefined;
-
       if (file) this.triggerOnDrop(file);
     }
   }, {
-    key: 'render',
+    key: "render",
     value: function render() {
       var handleClick = this.props.handleClick === true;
       var render = this.props.children;
-
-      var children = render({ over: this.state.over, overDocument: this.state.overDocument });
+      var children = render({
+        over: this.state.over,
+        overDocument: this.state.overDocument
+      });
       var props = {
         onDrag: this.onDrag,
         onDragStart: this.onDragStart,
@@ -188,23 +209,25 @@ var DropZone = function (_Component) {
         onDrop: this.onDrop
       };
       if (handleClick) props.onClick = this.onClick;
-
-      return _react2.default.cloneElement(children, props);
+      return /*#__PURE__*/_react["default"].cloneElement(children, props);
     }
   }]);
 
   return DropZone;
 }(_react.Component);
 
-DropZone.propTypes = {
-  onDrop: _propTypes2.default.func.isRequired,
-  handleClick: _propTypes2.default.bool,
-  dontRead: _propTypes2.default.bool
-};
+_defineProperty(DropZone, "defaultProps", {
+  onDrop: function onDrop(file, text) {}
+});
 
+DropZone.propTypes = {
+  onDrop: _propTypes["default"].func.isRequired,
+  handleClick: _propTypes["default"].bool,
+  dontRead: _propTypes["default"].bool
+};
 DropZone.defaultProps = {
   handleClick: true,
   dontRead: false
 };
-
-exports.default = DropZone;
+var _default = DropZone;
+exports["default"] = _default;

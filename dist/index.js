@@ -1,27 +1,32 @@
-'use strict';
+"use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.readFileAsText = exports.StyledDropZone = undefined;
+Object.defineProperty(exports, "StyledDropZone", {
+  enumerable: true,
+  get: function get() {
+    return _StyledDropZone["default"];
+  }
+});
+Object.defineProperty(exports, "readFileAsText", {
+  enumerable: true,
+  get: function get() {
+    return _readFileAsText["default"];
+  }
+});
+exports["default"] = void 0;
 
-var _DropZone = require('./DropZone');
+var _DropZone = _interopRequireDefault(require("./DropZone"));
 
-var _DropZone2 = _interopRequireDefault(_DropZone);
+var _StyledDropZone = _interopRequireDefault(require("./StyledDropZone"));
 
-var _StyledDropZone = require('./StyledDropZone');
+var _readFileAsText = _interopRequireDefault(require("./read-file-as-text"));
 
-var _StyledDropZone2 = _interopRequireDefault(_StyledDropZone);
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
-var _readFileAsText = require('./read-file-as-text');
-
-var _readFileAsText2 = _interopRequireDefault(_readFileAsText);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-exports.default = _DropZone2.default; /*
-                                       * index.js
-                                       */
-
-exports.StyledDropZone = _StyledDropZone2.default;
-exports.readFileAsText = _readFileAsText2.default;
+/*
+ * index.js
+ */
+var _default = _DropZone["default"];
+exports["default"] = _default;
