@@ -22,10 +22,6 @@ Object.keys(events).forEach(event => {
 
 
 class DropZone extends Component {
-  static defaultProps = {
-    onDrop: (file, text) => {},
-  }
-
   constructor(props) {
     super(props)
     this.onClick     = this.onClick.bind(this)
@@ -149,6 +145,7 @@ DropZone.propTypes = {
 DropZone.defaultProps = {
   handleClick: true,
   dontRead: false,
+  onDrop: (file, text) => {},
 }
 
 
