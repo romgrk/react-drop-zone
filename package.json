@@ -4,6 +4,7 @@
   "description": "Simple & elegant dropzone component",
   "main": "dist/index.js",
   "scripts": {
+    "prepare": "npm run build",
     "build": "cd src && babel *.js -d ../dist && cp *.css ../dist",
     "build-test": "webpack",
     "build-all": "npm run build && npm run build-test"
