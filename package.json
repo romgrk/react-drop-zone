@@ -1,6 +1,6 @@
 {
   "name": "react-drop-zone",
-  "version": "4.3.1",
+  "version": "4.3.2",
   "description": "Simple & elegant dropzone component",
   "main": "dist/index.js",
   "scripts": {
