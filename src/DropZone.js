@@ -14,11 +14,15 @@ const events = {
   dragleave: 'onDragLeave',
   drop:      'onDrop',
 }
-Object.keys(events).forEach(event => {
-  document.addEventListener(event, (ev) => {
-    dropZones.forEach(zone => zone[events[event]](ev, true))
+
+// Don't run in SSR mode
+if (globalThis.document !== undefined) {
+  Object.keys(events).forEach(event => {
+    document.addEventListener(event, (ev) => {
+      dropZones.forEach(zone => zone[events[event]](ev, true))
+    })
   })
-})
+}
 
 
 class DropZone extends Component {
